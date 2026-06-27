@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Admissions • God of Seed Academy</title>
-<meta name="description" content="God of Seed Academy — Admissions. Free school management platform by HMG Concepts.">
+<title>Alumni Network • God of Seed Academy</title>
+<meta name="description" content="God of Seed Academy — Alumni Network. Free school management platform by HMG Concepts.">
 <meta name="keywords" content="God of Seed Academy, school management, GOSA, HMG Concepts">
 <meta name="theme-color" content="#1c72e7">
 <link rel="icon" type="image/png" href="assets/img/logo.png">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<meta property="og:title" content="Admissions • God of Seed Academy">
+<meta property="og:title" content="Alumni Network • God of Seed Academy">
 <meta property="og:description" content="God of Seed Academy — Free school management by HMG Concepts">
 <meta property="og:image" content="assets/img/og-cover.svg">
 <meta property="og:type" content="website">
@@ -278,7 +278,7 @@ body{font-family:var(--font)!important;background:#f8fafc}
         </a><a href="hr.html" data-module-id="hr" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
           <span class="app-nav-icon">💼</span>
           <span>HR &amp; Payroll</span>
-        </a><a href="admissions.html" data-module-id="admissions" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="active">
+        </a><a href="admissions.html" data-module-id="admissions" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📝</span>
           <span>Admissions</span>
         </a><a href="payroll.html" data-module-id="payroll" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
@@ -383,7 +383,7 @@ body{font-family:var(--font)!important;background:#f8fafc}
   <main class="app-main">
     <header class="app-topbar">
       <button class="mobile-toggle" onclick="App.toggleSidebar()" title="Menu">☰</button>
-      <h1 class="app-page-title">Admissions</h1>
+      <h1 class="app-page-title">Alumni Network</h1>
       <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
         
         <button class="btn btn-sm btn-outline" onclick="if(window.Super)Super.chatbot.explainPage()" title="About this page">ℹ️ Help</button>
@@ -394,24 +394,22 @@ body{font-family:var(--font)!important;background:#f8fafc}
     </header>
     <div class="app-content">
       
-      <div class="card" style="margin-bottom:16px"><p style="color:var(--gray-600);margin:0">
-        Generate a public <strong>application link</strong> to send to prospective parents. They fill it (no account),
-        you review, then <strong>Accept &amp; Extract</strong> to auto-create the student record.</p></div>
-      <div class="card" style="margin-bottom:16px" data-staff-only>
-        <h3>🔗 Application links</h3>
-        <div class="grid grid-2">
-          <div class="form-group"><label>Label</label><input class="form-input" id="al-label" placeholder="2026 Intake"></div>
-          <div class="form-group"><label>Applying for class</label><input class="form-input" id="al-class" placeholder="JSS1"></div>
-          <div class="form-group"><label>Session</label><input class="form-input" id="al-session" placeholder="2025/2026"></div>
-        </div>
-        <button class="btn btn-primary" onclick="ADM.makeLink()">+ Generate link</button>
-        <div id="al-list" style="margin-top:12px"></div>
+      <p style="color:var(--gray-600);margin-bottom:18px">Graduation-year directory, mentorship, fundraising.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+        <button class="btn btn-primary" onclick="CRUD.openForm('alumni')" data-staff-only>+ Add new</button>
+        <button class="btn btn-outline" onclick="CRUD.renderList('alumni')">↻ Refresh</button>
+        <button class="btn btn-outline" onclick="CRUD.exportCSV('alumni')" data-staff-only>⬇ Export CSV</button>
+        <button class="btn btn-outline" onclick="CRUD.exportPDF('alumni')" data-staff-only>📄 Export PDF</button>
+        <button class="btn btn-outline" onclick="CRUD.importCSV('alumni')" data-admin-only>⬆ Import CSV</button>
+        
+        
+        
+        
+        
       </div>
-      <div class="card">
-        <h3>📨 Submitted applications</h3>
-        <div style="display:flex;gap:8px;margin-bottom:8px"><button class="btn btn-outline" onclick="ADM.load()">↻ Refresh</button></div>
-        <div id="adm-list"><span class="pulse">Loading…</span></div>
-      </div>
+      
+      <div class="table-wrap"><table id="alumni-table"><thead><tr><th>Loading…</th></tr></thead><tbody><tr><td><span class="pulse">Loading…</span></td></tr></tbody></table></div>
+      <script>document.addEventListener('DOMContentLoaded',function(){ if(window.CRUD) CRUD.renderList('alumni'); });</script>
     </div>
     <footer style="padding:20px 28px;border-top:1px solid var(--gray-200);font-size:0.82rem;color:var(--gray-500);text-align:center">
       © 2026 God of Seed Academy · Built by <a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">Adewale Samson Adeagbo</a> · Powered by <a href="https://hmgconcepts.pages.dev/" target="_blank" rel="noopener">HMG Concepts</a> · <a href="developer.html">About the developer</a>
@@ -437,26 +435,4 @@ body{font-family:var(--font)!important;background:#f8fafc}
   if (window.Enterprise) Enterprise.init(sb);
   if (window.CRUD) CRUD.init(sb);
 </script>
-<script>
-const ADM={
-  async makeLink(){ if(!sb){toast('DB not configured','warning');return;}
-    const {data,error}=await sb.from('admission_links').insert({label:document.getElementById('al-label').value,applying_for_class:document.getElementById('al-class').value,session:document.getElementById('al-session').value}).select().single();
-    if(error){toast(error.message,'danger');return;} toast('Link generated ✓','success'); ADM.links();
-  },
-  async links(){ if(!sb)return; const {data}=await sb.from('admission_links').select('*').order('created_at',{ascending:false});
-    const base=location.origin+location.pathname.replace(/admissions\.html$/,'apply.html');
-    document.getElementById('al-list').innerHTML='<div class="table-wrap"><table><thead><tr><th>Label</th><th>Class</th><th>Link</th><th>Active</th></tr></thead><tbody>'+(data||[]).map(l=>{const url=base+'?token='+l.token;return '<tr><td>'+esc(l.label||'-')+'</td><td>'+esc(l.applying_for_class||'-')+'</td><td><input class="form-input" style="font-size:.78rem" value="'+esc(url)+'" onclick="this.select()"> <button class="btn btn-sm btn-outline" onclick="navigator.clipboard.writeText(\''+url+'\');toast(\'Copied\',\'success\')">Copy</button></td><td>'+(l.active?'✓':'—')+'</td></tr>';}).join('')+'</tbody></table></div>';
-  },
-  async load(){ if(!sb){document.getElementById('adm-list').innerHTML='<p>DB not configured.</p>';return;}
-    const {data}=await sb.from('admissions').select('*').order('created_at',{ascending:false}).limit(500);
-    if(!data||!data.length){document.getElementById('adm-list').innerHTML='<p style="color:var(--gray-500)">No applications yet.</p>';return;}
-    document.getElementById('adm-list').innerHTML='<div class="table-wrap"><table><thead><tr><th>Applicant</th><th>Class</th><th>Parent</th><th>Status</th><th>Actions</th></tr></thead><tbody>'+
-      data.map(a=>'<tr><td>'+esc(a.full_name||'')+'</td><td>'+esc(a.applying_for_class||'')+'</td><td>'+esc(a.parent_name||'')+'<br><small>'+esc(a.parent_phone||'')+'</small></td><td><span class="badge">'+esc(a.status)+'</span>'+(a.extracted?' <span class="badge badge-success">enrolled</span>':'')+'</td>'+
-        '<td style="white-space:nowrap" data-admin-only>'+(a.extracted?'':'<button class="btn btn-sm btn-primary" onclick="ADM.extract(\''+a.id+'\')">Accept &amp; Extract</button> ')+'<button class="btn btn-sm btn-outline" onclick="ADM.set(\''+a.id+'\',\'rejected\')">Reject</button></td></tr>').join('')+'</tbody></table></div>';
-    if(window.App&&App.applyRoleVisibility)try{App.applyRoleVisibility();}catch(e){}
-  },
-  async extract(id){ const {data,error}=await sb.rpc('extract_admission',{p_id:id}); if(error||(data&&!data.ok)){toast((error&&error.message)||(data&&data.error)||'Error','danger');return;} if(window.App&&App.logActivity)App.logActivity('extract','admission',id); toast('✅ Student created from application','success'); ADM.load(); },
-  async set(id,s){ await sb.from('admissions').update({status:s}).eq('id',id); ADM.load(); }
-};
-document.addEventListener('DOMContentLoaded',()=>{ ADM.links(); ADM.load(); }); ADM.links(); ADM.load();
-</script></body></html>
+</body></html>
