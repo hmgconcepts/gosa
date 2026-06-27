@@ -277,32 +277,83 @@ const App = {
   },
 
   async loadDashboard() {
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+    const safeCount = async (table, filterFn) => {
+      if (!sb) return 0;
+      try {
+        let q = sb.from(table).select('id', { count: 'exact', head: true });
+        if (filterFn) q = filterFn(q);
+        const r = await q;
+        return r && !r.error ? (r.count || 0) : 0;
+      } catch (_) { return 0; }
+    };
+    const safeRows = async (table, select='*', limit=5, order='created_at') => {
+      if (!sb) return [];
+      try {
+        let q = sb.from(table).select(select);
+        if (order) q = q.order(order, { ascending:false });
+        if (limit) q = q.limit(limit);
+        const r = await q;
+        return r && !r.error ? (r.data || []) : [];
+      } catch (_) { return []; }
+    };
     try {
-      const [students, staff, fees, announcements, polls] = await Promise.all([
-        sb.from('students').select('id', { count: 'exact', head: true }),
-        sb.from('staff').select('id',     { count: 'exact', head: true }),
-        sb.from('fee_payments').select('amount_paid'),
-        sb.from('announcements').select('*').order('created_at', { ascending: false }).limit(5),
-        sb.from('polls').select('*').eq('status','open').order('created_at',{ascending:false}).limit(3)
+      const [studentCount, staffCount, feeRows, announcements, openPolls,
+             attendanceCount, cbtCount, resultCount, parentCount, complaintCount,
+             applicationCount, messageCount, assignmentCount, behaviourCount,
+             supportCount, libraryCount, payrollCount, inventoryCount] = await Promise.all([
+        safeCount('students'),
+        safeCount('staff'),
+        safeRows('fee_payments', 'amount_paid', 500, null),
+        safeRows('announcements', '*', 5, 'created_at'),
+        safeRows('polls', '*', 3, 'created_at'),
+        safeCount('attendance'),
+        safeCount('cbt_exams'),
+        safeCount('results'),
+        safeCount('parent_student'),
+        safeCount('complaints'),
+        safeCount('admission_applications'),
+        safeCount('messages'),
+        safeCount('assignments'),
+        safeCount('behaviour'),
+        safeCount('support_plans'),
+        safeCount('library'),
+        safeCount('payroll'),
+        safeCount('inventory')
       ]);
-      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-      set('stat-students', students.count || 0);
-      set('stat-staff', staff.count || 0);
-      set('stat-fees', (fees.data || []).reduce((a,b) => a + (b.amount_paid || 0), 0).toLocaleString());
-      set('stat-announcements', (announcements.data || []).length);
+      const feesPaid = (feeRows || []).reduce((a,b) => a + (Number(b.amount_paid) || 0), 0);
+      set('stat-students', studentCount);
+      set('stat-staff', staffCount);
+      set('stat-fees', feesPaid.toLocaleString());
+      set('stat-announcements', announcements.length);
+      // Admin/Super Admin oversight KPIs. These IDs exist only on the admin dashboard.
+      set('ov-staff-count', staffCount);
+      set('ov-attendance', attendanceCount);
+      set('ov-cbt-open', cbtCount);
+      set('ov-results', resultCount);
+      set('ov-parent-fees', feeRows.length);
+      set('ov-payroll', payrollCount);
+      set('ov-inventory', inventoryCount);
+      set('ov-parents', parentCount);
+      set('ov-complaints', complaintCount);
+      set('ov-applications', applicationCount);
+      set('ov-messages', messageCount);
+      set('ov-assignments', assignmentCount);
+      set('ov-behaviour', behaviourCount);
+      set('ov-support', supportCount);
+      set('ov-library', libraryCount);
       const annEl = document.getElementById('dash-announcements');
-      if (annEl) annEl.innerHTML = (announcements.data || []).length
-        ? announcements.data.map(a => '<div style="padding:10px 0;border-bottom:1px solid var(--gray-200)"><strong>'+esc(a.title)+'</strong><div style="font-size:0.82rem;color:var(--gray-500)">'+new Date(a.created_at).toLocaleString()+'</div></div>').join('')
+      if (annEl) annEl.innerHTML = announcements.length
+        ? announcements.map(a => '<div style="padding:10px 0;border-bottom:1px solid var(--gray-200)"><strong>'+esc(a.title)+'</strong><div style="font-size:0.82rem;color:var(--gray-500)">'+(a.created_at ? new Date(a.created_at).toLocaleString() : '')+'</div></div>').join('')
         : '<p style="color:var(--gray-500)">No announcements yet.</p>';
       const pollEl = document.getElementById('dash-polls');
-      if (pollEl) pollEl.innerHTML = (polls.data || []).length
-        ? polls.data.map(p => '<div style="padding:10px 0;border-bottom:1px solid var(--gray-200)"><a href="voting.html?poll='+p.id+'"><strong>'+esc(p.title)+'</strong></a><span class="badge badge-success" style="margin-left:8px">open</span></div>').join('')
+      if (pollEl) pollEl.innerHTML = openPolls.length
+        ? openPolls.map(p => '<div style="padding:10px 0;border-bottom:1px solid var(--gray-200)"><a href="voting.html?poll='+p.id+'"><strong>'+esc(p.title)+'</strong></a><span class="badge badge-success" style="margin-left:8px">open</span></div>').join('')
         : '<p style="color:var(--gray-500)">No active polls.</p>';
-      // Chart
       const ctx = document.getElementById('dash-chart');
       if (ctx && window.Chart) {
-        var _sc = (students.count || 0), _fp = (fees.data || []).length;
-        new Chart(ctx, { type: 'doughnut', data: { labels:['Paid','Pending'], datasets:[{ data:[_fp, Math.max(0, _sc - _fp)], backgroundColor:['#10b981','#e2e8f0'] }] }, options: { responsive:true, plugins:{ legend:{ position:'bottom' } } } });
+        var _sc = Number(studentCount || 0), _fp = Number(feeRows.length || 0);
+        new Chart(ctx, { type: 'doughnut', data: { labels:['Payment rows','Students without payment row'], datasets:[{ data:[_fp, Math.max(0, _sc - _fp)], backgroundColor:['#10b981','#e2e8f0'] }] }, options: { responsive:true, plugins:{ legend:{ position:'bottom' } } } });
       }
     } catch (e) { console.warn('Dashboard load failed (demo mode):', e.message); }
   },
