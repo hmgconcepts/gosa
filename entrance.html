@@ -6,7 +6,7 @@
 <title>Entrance &amp; Assessments • God of Seed Academy</title>
 <meta name="description" content="God of Seed Academy — Entrance &amp; Assessments. Free school management platform by HMG Concepts.">
 <meta name="keywords" content="God of Seed Academy, school management, GOSA, HMG Concepts">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#0506ae">
 <link rel="icon" type="image/png" href="assets/img/logo.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
    Final UI/UX repair: stable, professional navigation for every layout.
    Prevents scattered icons/labels, fixes unsupported layout IDs, and keeps
    large module lists readable on desktop and mobile. */
-:root{--primary:#0f172a;--primary-dark:#0f172a;--primary-light:#2563eb;--accent:#2563eb;--gradient:linear-gradient(135deg,#0f172a,#2563eb);--gradient-dark:linear-gradient(135deg,#0f172a,#2563eb);--font:'Manrope',system-ui,sans-serif;--sc-primary:#0f172a;--sc-accent:#2563eb}
+:root{--primary:#0506ae;--primary-dark:#0506ae;--primary-light:#964eec;--accent:#964eec;--gradient:linear-gradient(135deg,#0506ae,#964eec);--gradient-dark:linear-gradient(135deg,#0506ae,#964eec);--font:'Plus Jakarta Sans',system-ui,sans-serif;--sc-primary:#0506ae;--sc-accent:#964eec}
 body{font-family:var(--font)!important;background:#f8fafc}
 .app-layout{display:flex;min-height:100vh;background:#f8fafc;color:#0f172a}
 .app-sidebar{width:286px;flex-shrink:0;background:rgba(255,255,255,.98);border-right:1px solid #e2e8f0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden;z-index:40;box-shadow:0 10px 25px rgba(15,23,42,.04)}
@@ -59,7 +59,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
 @media(min-width:901px){.app-topbar .mobile-toggle{display:none}}
 </style>
 </head>
-<body data-theme="theme9" data-school="God of Seed Academy" data-font="manrope">
+<body data-theme="theme15" data-school="God of Seed Academy" data-font="plusjakarta">
 
 <div id="notif-bell" class="notif-bell" title="Notifications" data-chatbot>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -190,7 +190,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="sow.html" data-module-id="sow" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📋</span>
           <span>Scheme</span>
-        </a><a href="messages.html" data-module-id="messages" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
+        </a><a href="messages.html" data-module-id="messages" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📱</span>
           <span>Messaging</span>
         </a><a href="announcements.html" data-module-id="announcements" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
@@ -334,9 +334,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="developer.html" data-module-id="developer" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👨‍💻</span>
           <span>About the Developer</span>
-        </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
-          <span class="app-nav-icon">🧮</span>
-          <span>Activity Log</span>
         </a><a href="lesson_plans.html" data-module-id="lesson_plans" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🗒️</span>
           <span>Lesson Plans</span>
@@ -349,6 +346,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="substitutions.html" data-module-id="substitutions" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🔁</span>
           <span>Substitutions</span>
+        </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+          <span class="app-nav-icon">🧮</span>
+          <span>Activity Log</span>
         </a><a href="inbox.html" data-module-id="inbox" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">💬</span>
           <span>Inbox</span>
@@ -361,6 +361,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="lost_found.html" data-module-id="lost_found" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">🔍</span>
           <span>Lost &amp; Found</span>
+        </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
+          <span class="app-nav-icon">📈</span>
+          <span>Reports</span>
         </a><a href="school_calendar.html" data-module-id="school_calendar" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📅</span>
           <span>Calendar</span>
@@ -373,9 +376,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="donations.html" data-module-id="donations" data-role-allow="super_admin admin principal proprietor head_teacher bursar parent" class="">
           <span class="app-nav-icon">💝</span>
           <span>Donations</span>
-        </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
-          <span class="app-nav-icon">📈</span>
-          <span>Reports</span>
         </a><a href="student-profile.html" data-module-id="student-profile" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👤</span>
           <span>Student Profile</span>
@@ -385,6 +385,12 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="academic-records.html" data-module-id="academic-records" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📄</span>
           <span>Academic Records</span>
+        </a><a href="verify-certificate.html" data-module-id="verify-certificate" data-role-allow="any all public super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
+          <span class="app-nav-icon">🔎</span>
+          <span>Verify Certificate</span>
+        </a><a href="teacher-overview.html" data-module-id="teacher-overview" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+          <span class="app-nav-icon">👨‍🏫</span>
+          <span>Teacher Overview</span>
         </a><a href="feature-guide.html" data-module-id="feature-guide" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📘</span>
           <span>Feature Guide</span>
@@ -490,6 +496,8 @@ const EN={ rows:[], exam:null,
       '<tr><td><b>Correct:</b></td><td>'+(r.correct_count||0)+'</td><td><b>Wrong:</b></td><td>'+(r.wrong_count||0)+'</td></tr>'+
       '<tr><td><b>Outcome:</b></td><td colspan=3><b style="color:'+(ok?'#16a34a':'#dc2626')+'">'+(ok?'QUALIFIED FOR ADMISSION':'NOT QUALIFIED')+'</b></td></tr></table>'+
       '<p style="margin-top:18px;font-size:.75rem;color:#94a3b8">Ref: '+esc(r.cert_code||r.id.slice(0,8))+' · Generated '+new Date().toLocaleDateString()+'</p></div>'; },
+  certHTML(r){ var sc=(window.SCHOOL||{}); return '<div style="width:760px;max-width:96vw;border:10px double '+(sc.primary||'#4f46e5')+';padding:38px;text-align:center;font-family:Georgia,serif">'+
+      '<img src="assets/img/logo.png" style="width:70px;height:70px;object-fit:contain;margin:0 auto" onerror="this.style.display='none'"><h1 style="color:'+(sc.primary||'#4f46e5')+';margin:8px 0">'+esc(sc.name||'School')+'</h1><p>'+esc(sc.motto||'')+'</p><h2 style="letter-spacing:3px">ASSESSMENT CERTIFICATE</h2><p>This certifies that</p><h2>'+esc(r.student_name)+'</h2><p>completed <strong>'+esc((EN.exam&&EN.exam.title)||'Entrance Assessment')+'</strong> and scored</p><h1>'+r.score+' / '+r.total+' ('+Number(r.percent||0).toFixed(1)+'%)</h1><p>Certificate Code: <strong>'+esc(r.cert_code||r.id.slice(0,8))+'</strong></p><div style="display:flex;justify-content:space-around;margin-top:40px"><span>________________<br>Exam Officer</span><span>________________<br>Principal</span></div></div>'; },
   letterHTML(r){ var sc=(window.SCHOOL||{}); var ok=this.decision(r)==='admitted'; var ses=document.getElementById('en-session').value||'';
     return '<div style="width:720px;max-width:96vw;padding:40px;font-family:Georgia,serif;line-height:1.7">'+
       '<div style="display:flex;align-items:center;gap:12px;border-bottom:3px solid '+(sc.primary||'#4f46e5')+';padding-bottom:10px"><img src="assets/img/logo.png" style="width:56px;height:56px;object-fit:contain" onerror="this.style.display=\'none\'"><div><h2 style="margin:0;color:'+(sc.primary||'#4f46e5')+'">'+esc(sc.name||'School')+'</h2><div style="font-size:.8rem;color:#64748b">'+esc(sc.address||'')+' · '+esc(sc.phone||'')+' · '+esc(sc.email||'')+'</div></div></div>'+
@@ -500,11 +508,11 @@ const EN={ rows:[], exam:null,
          :('<p>Dear '+esc(r.student_name)+',</p><p>Thank you for sitting our entrance assessment <b>'+esc((EN.exam&&EN.exam.title)||'')+'</b>. Regrettably, your score of <b>'+Number(r.percent).toFixed(1)+'%</b> did not meet the admission benchmark on this occasion. We encourage you to reapply and wish you the very best.</p>'))+
       '<p style="margin-top:30px">Yours faithfully,</p><p style="margin-top:30px"><b>______________________</b><br>Admissions Officer<br>'+esc(sc.name||'')+'</p>'+
       '<p style="margin-top:18px;font-size:.7rem;color:#94a3b8">Ref: ADM-LTR/'+(new Date().getFullYear())+'/'+esc((r.cert_code||r.id).slice(0,6).toUpperCase())+'</p></div>'; },
-  printOne(html,title){ var w=window.open('','_blank'); w.document.write('<html><head><title>'+title+'</title></head><body style="display:flex;justify-content:center;padding:20px">'+html+'<script>window.onload=()=>window.print()<\/script></body></html>'); w.document.close(); },
-  printMany(htmls,title){ var w=window.open('','_blank'); w.document.write('<html><head><title>'+title+'</title></head><body>'+htmls.map(h=>'<div style="page-break-after:always;display:flex;justify-content:center;padding:14px">'+h+'</div>').join('')+'<script>window.onload=()=>window.print()<\/script></body></html>'); w.document.close(); },
+  printOne(html,title){ var sig=localStorage.getItem('sc-signature-url')||'', pn=localStorage.getItem('sc-principal-name')||'Principal'; var sign=sig?'<div style="text-align:center;margin-top:18px"><img src="'+sig+'" style="max-width:150px;max-height:70px;object-fit:contain"><br><b>'+pn+'</b><br>Official Signature</div>':''; var w=window.open('','_blank'); w.document.write('<html><head><title>'+title+'</title></head><body style="display:flex;justify-content:center;padding:20px"><div>'+html+sign+'</div><script>window.onload=()=>window.print()<\/script></body></html>'); w.document.close(); },
+  printMany(htmls,title){ var sig=localStorage.getItem('sc-signature-url')||'', pn=localStorage.getItem('sc-principal-name')||'Principal'; var sign=sig?'<div style="text-align:center;margin-top:18px"><img src="'+sig+'" style="max-width:150px;max-height:70px;object-fit:contain"><br><b>'+pn+'</b><br>Official Signature</div>':''; var w=window.open('','_blank'); w.document.write('<html><head><title>'+title+'</title></head><body>'+htmls.map(h=>'<div style="page-break-after:always;display:flex;justify-content:center;padding:14px"><div>'+h+sign+'</div></div>').join('')+'<script>window.onload=()=>window.print()<\/script></body></html>'); w.document.close(); },
   slip(i){ this.printOne(this.slipHTML(this.rows[i]),'Result Slip'); },
   letter(i){ var r=this.rows[i]; this.printOne(this.letterHTML(r),'Admission Letter'); this._logLetter(r); },
-  cert(i){ var r=this.rows[i]; if(window.Super){ Super.cert.print&&Super.cert.print(); } this.printOne(this.slipHTML(r),'Certificate'); },
+  cert(i){ var r=this.rows[i]; this.printOne(this.certHTML ? this.certHTML(r) : this.slipHTML(r),'Certificate'); },
   bulkLetters(){ if(!this.rows.length){toast('No results loaded','warning');return;} this.printMany(this.rows.map(r=>this.letterHTML(r)),'Admission Letters'); this.rows.forEach(r=>this._logLetter(r)); },
   bulkCerts(){ if(!this.rows.length){toast('No results loaded','warning');return;} this.printMany(this.rows.map(r=>this.slipHTML(r)),'Result Certificates'); },
   async _logLetter(r){ if(!sb)return; try{ await sb.from('admission_letters').insert({ candidate_name:r.student_name, candidate_class:r.student_class, exam_id:r.exam_id, result_id:r.id, percent:r.percent, decision:this.decision(r), session:document.getElementById('en-session').value||null }); }catch(e){} },

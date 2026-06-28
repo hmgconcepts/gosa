@@ -6,7 +6,7 @@
 <title>Timetable • God of Seed Academy</title>
 <meta name="description" content="God of Seed Academy — Timetable. Free school management platform by HMG Concepts.">
 <meta name="keywords" content="God of Seed Academy, school management, GOSA, HMG Concepts">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#0506ae">
 <link rel="icon" type="image/png" href="assets/img/logo.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
    Final UI/UX repair: stable, professional navigation for every layout.
    Prevents scattered icons/labels, fixes unsupported layout IDs, and keeps
    large module lists readable on desktop and mobile. */
-:root{--primary:#0f172a;--primary-dark:#0f172a;--primary-light:#2563eb;--accent:#2563eb;--gradient:linear-gradient(135deg,#0f172a,#2563eb);--gradient-dark:linear-gradient(135deg,#0f172a,#2563eb);--font:'Manrope',system-ui,sans-serif;--sc-primary:#0f172a;--sc-accent:#2563eb}
+:root{--primary:#0506ae;--primary-dark:#0506ae;--primary-light:#964eec;--accent:#964eec;--gradient:linear-gradient(135deg,#0506ae,#964eec);--gradient-dark:linear-gradient(135deg,#0506ae,#964eec);--font:'Plus Jakarta Sans',system-ui,sans-serif;--sc-primary:#0506ae;--sc-accent:#964eec}
 body{font-family:var(--font)!important;background:#f8fafc}
 .app-layout{display:flex;min-height:100vh;background:#f8fafc;color:#0f172a}
 .app-sidebar{width:286px;flex-shrink:0;background:rgba(255,255,255,.98);border-right:1px solid #e2e8f0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden;z-index:40;box-shadow:0 10px 25px rgba(15,23,42,.04)}
@@ -59,7 +59,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
 @media(min-width:901px){.app-topbar .mobile-toggle{display:none}}
 </style>
 </head>
-<body data-theme="theme9" data-school="God of Seed Academy" data-font="manrope">
+<body data-theme="theme15" data-school="God of Seed Academy" data-font="plusjakarta">
 
 <div id="notif-bell" class="notif-bell" title="Notifications" data-chatbot>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -99,7 +99,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
     <div id="modal-footer" class="modal-footer"></div>
   </div>
 </div>
-<div class="app-layout sidebar" data-require-role="staff">
+<div class="app-layout sidebar" data-require-role="any">
   <aside class="app-sidebar" id="app-sidebar">
       <div class="app-brand">
         <img src="assets/img/logo.png" alt="God of Seed Academy" style="object-fit:contain" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{textContent:('G'),style:'width:40px;height:40px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900'}))">
@@ -190,7 +190,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="sow.html" data-module-id="sow" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📋</span>
           <span>Scheme</span>
-        </a><a href="messages.html" data-module-id="messages" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
+        </a><a href="messages.html" data-module-id="messages" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📱</span>
           <span>Messaging</span>
         </a><a href="announcements.html" data-module-id="announcements" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
@@ -334,9 +334,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="developer.html" data-module-id="developer" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👨‍💻</span>
           <span>About the Developer</span>
-        </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
-          <span class="app-nav-icon">🧮</span>
-          <span>Activity Log</span>
         </a><a href="lesson_plans.html" data-module-id="lesson_plans" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🗒️</span>
           <span>Lesson Plans</span>
@@ -349,6 +346,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="substitutions.html" data-module-id="substitutions" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🔁</span>
           <span>Substitutions</span>
+        </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+          <span class="app-nav-icon">🧮</span>
+          <span>Activity Log</span>
         </a><a href="inbox.html" data-module-id="inbox" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">💬</span>
           <span>Inbox</span>
@@ -361,6 +361,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="lost_found.html" data-module-id="lost_found" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">🔍</span>
           <span>Lost &amp; Found</span>
+        </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
+          <span class="app-nav-icon">📈</span>
+          <span>Reports</span>
         </a><a href="school_calendar.html" data-module-id="school_calendar" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📅</span>
           <span>Calendar</span>
@@ -373,9 +376,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="donations.html" data-module-id="donations" data-role-allow="super_admin admin principal proprietor head_teacher bursar parent" class="">
           <span class="app-nav-icon">💝</span>
           <span>Donations</span>
-        </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
-          <span class="app-nav-icon">📈</span>
-          <span>Reports</span>
         </a><a href="student-profile.html" data-module-id="student-profile" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👤</span>
           <span>Student Profile</span>
@@ -385,6 +385,12 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="academic-records.html" data-module-id="academic-records" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📄</span>
           <span>Academic Records</span>
+        </a><a href="verify-certificate.html" data-module-id="verify-certificate" data-role-allow="any all public super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
+          <span class="app-nav-icon">🔎</span>
+          <span>Verify Certificate</span>
+        </a><a href="teacher-overview.html" data-module-id="teacher-overview" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+          <span class="app-nav-icon">👨‍🏫</span>
+          <span>Teacher Overview</span>
         </a><a href="feature-guide.html" data-module-id="feature-guide" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📘</span>
           <span>Feature Guide</span>
@@ -420,32 +426,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
     </header>
     <div class="app-content">
       
-      <div class="card" style="margin-bottom:16px;background:#eef2ff;border-color:#c7d2fe">
-        <h3 style="margin-top:0">ℹ️ What is this page?</h3>
-        <p style="color:var(--gray-700);line-height:1.75;margin:0 0 8px"><strong>Timetable</strong> is part of the School Connect portal. Class &amp; exam timetables with auto-conflict detection.</p>
-        <p style="color:var(--gray-700);line-height:1.75;margin:0 0 8px"><strong>Who should use it:</strong> Super admin Admin principal proprietor head Teacher bursar Staff Teacher Parent Student. Admin/Super Admin may see management overviews, while non-admin roles only see pages relevant to their duties.</p>
-        <ol style="margin:8px 0 0 20px;color:var(--gray-700);line-height:1.75">
-          <li>Read this guide first so you understand the purpose of the page.</li>
-          <li>Use <strong>+ Add new</strong> only if your role is allowed to create records.</li>
-          <li>Use <strong>Refresh</strong>, <strong>Export CSV</strong> or <strong>Export PDF</strong> for records and reporting.</li>
-          <li>Ask the 💬 assistant, or open <a href="feature-guide.html">Feature Guide</a>, for a fuller explanation.</li>
-        </ol>
-      </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
-        <button class="btn btn-primary" onclick="CRUD.openForm('timetable')" data-staff-only>+ Add new</button>
-        <button class="btn btn-outline" onclick="CRUD.renderList('timetable')">↻ Refresh</button>
-        <button class="btn btn-outline" onclick="CRUD.exportCSV('timetable')" data-staff-only>⬇ Export CSV</button>
-        <button class="btn btn-outline" onclick="CRUD.exportPDF('timetable')" data-staff-only>📄 Export PDF</button>
-        <button class="btn btn-outline" onclick="CRUD.importCSV('timetable')" data-admin-only>⬆ Import CSV</button>
-        
-        
-        
-        
-        
-      </div>
-      
-      <div class="table-wrap"><table id="timetable-table"><thead><tr><th>Loading…</th></tr></thead><tbody><tr><td><span class="pulse">Loading…</span></td></tr></tbody></table></div>
-      <script>document.addEventListener('DOMContentLoaded',function(){ if(window.CRUD) CRUD.renderList('timetable'); });</script>
+      <div class="card" style="margin-bottom:16px;background:#eef2ff;border-color:#c7d2fe"><h3 style="margin-top:0">🗓️ Published School Timetable</h3><p style="color:var(--gray-700);line-height:1.7;margin:0">Everyone can read the school timetable. Staff/admin can add or edit timetable slots; generated slots from Auto-Timetable are shown here for classes, students and parents.</p></div>
+      <div class="card" style="margin-bottom:16px"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:end"><div class="form-group"><label>Class</label><select class="form-select" id="tt-class" onchange="TT.load()"><option value="">All classes</option></select></div><button class="btn btn-outline" onclick="TT.load()">Refresh</button><button class="btn btn-primary" data-staff-only onclick="CRUD.openForm('timetable')">+ Add slot</button><a class="btn btn-outline" data-staff-only href="timetable-generator.html">Auto-generate</a></div></div>
+      <div id="tt-view"><p class="pulse">Loading timetable…</p></div>
     </div>
     <footer style="padding:20px 28px;border-top:1px solid var(--gray-200);font-size:0.82rem;color:var(--gray-500);text-align:center">
       © 2026 God of Seed Academy · Built by <a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">Adewale Samson Adeagbo</a> · Powered by <a href="https://hmgconcepts.pages.dev/" target="_blank" rel="noopener">HMG Concepts</a> · <a href="developer.html">About the developer</a>
@@ -471,4 +454,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
   if (window.Enterprise) Enterprise.init(sb);
   if (window.CRUD) CRUD.init(sb);
 </script>
-</body></html>
+<script>
+const TT={days:['Monday','Tuesday','Wednesday','Thursday','Friday'], async init(){ try{const {data}=await sb.from('classes').select('name').order('name'); const sel=document.getElementById('tt-class'); (data||[]).forEach(c=>{var o=document.createElement('option');o.value=c.name;o.textContent=c.name;sel.appendChild(o);});}catch(e){} this.load();}, async load(){ if(!sb)return; let q=sb.from('timetable').select('*').limit(2000); const cls=document.getElementById('tt-class').value; if(cls)q=q.eq('class',cls); const {data,error}=await q; const box=document.getElementById('tt-view'); if(error){box.innerHTML='<div class="card">'+esc(error.message)+'</div>';return;} const rows=data||[]; if(!rows.length){box.innerHTML='<div class="card">No timetable has been published yet. Staff can add slots or use Auto-Timetable.</div>';return;} const periods=[...new Set(rows.map(r=>r.period||''))].sort(); let html='<div class="card"><div class="table-wrap"><table><thead><tr><th>Period</th>'+this.days.map(d=>'<th>'+d+'</th>').join('')+'</tr></thead><tbody>'; periods.forEach(p=>{html+='<tr><td><strong>'+esc(p)+'</strong></td>'+this.days.map(d=>{const cell=rows.filter(r=>(r.period||'')===p&&(r.day||'')===d).map(r=>'<div><strong>'+esc(r.class||'')+'</strong> · '+esc(r.subject||'')+'<br><small>'+esc(r.teacher||'')+' '+esc(r.room||'')+'</small></div>').join('<hr>'); return '<td>'+cell+'</td>';}).join('')+'</tr>';}); box.innerHTML=html+'</tbody></table></div></div>'; }}; document.addEventListener('DOMContentLoaded',()=>TT.init()); TT.init();
+</script></body></html>

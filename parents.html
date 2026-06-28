@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Parent–Child Mapping • God of Seed Academy</title>
-<meta name="description" content="God of Seed Academy — Parent–Child Mapping. Free school management platform by HMG Concepts.">
+<title>Parents • God of Seed Academy</title>
+<meta name="description" content="God of Seed Academy — Parents. Free school management platform by HMG Concepts.">
 <meta name="keywords" content="God of Seed Academy, school management, GOSA, HMG Concepts">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#0506ae">
 <link rel="icon" type="image/png" href="assets/img/logo.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<meta property="og:title" content="Parent–Child Mapping • God of Seed Academy">
+<meta property="og:title" content="Parents • God of Seed Academy">
 <meta property="og:description" content="God of Seed Academy — Free school management by HMG Concepts">
 <meta property="og:image" content="assets/img/og-cover.svg">
 <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
    Final UI/UX repair: stable, professional navigation for every layout.
    Prevents scattered icons/labels, fixes unsupported layout IDs, and keeps
    large module lists readable on desktop and mobile. */
-:root{--primary:#0f172a;--primary-dark:#0f172a;--primary-light:#2563eb;--accent:#2563eb;--gradient:linear-gradient(135deg,#0f172a,#2563eb);--gradient-dark:linear-gradient(135deg,#0f172a,#2563eb);--font:'Manrope',system-ui,sans-serif;--sc-primary:#0f172a;--sc-accent:#2563eb}
+:root{--primary:#0506ae;--primary-dark:#0506ae;--primary-light:#964eec;--accent:#964eec;--gradient:linear-gradient(135deg,#0506ae,#964eec);--gradient-dark:linear-gradient(135deg,#0506ae,#964eec);--font:'Plus Jakarta Sans',system-ui,sans-serif;--sc-primary:#0506ae;--sc-accent:#964eec}
 body{font-family:var(--font)!important;background:#f8fafc}
 .app-layout{display:flex;min-height:100vh;background:#f8fafc;color:#0f172a}
 .app-sidebar{width:286px;flex-shrink:0;background:rgba(255,255,255,.98);border-right:1px solid #e2e8f0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden;z-index:40;box-shadow:0 10px 25px rgba(15,23,42,.04)}
@@ -59,7 +59,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
 @media(min-width:901px){.app-topbar .mobile-toggle{display:none}}
 </style>
 </head>
-<body data-theme="theme9" data-school="God of Seed Academy" data-font="manrope">
+<body data-theme="theme15" data-school="God of Seed Academy" data-font="plusjakarta">
 
 <div id="notif-bell" class="notif-bell" title="Notifications" data-chatbot>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -99,7 +99,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
     <div id="modal-footer" class="modal-footer"></div>
   </div>
 </div>
-<div class="app-layout sidebar" data-require-role="staff">
+<div class="app-layout sidebar" data-require-role="admin">
   <aside class="app-sidebar" id="app-sidebar">
       <div class="app-brand">
         <img src="assets/img/logo.png" alt="God of Seed Academy" style="object-fit:contain" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{textContent:('G'),style:'width:40px;height:40px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900'}))">
@@ -190,7 +190,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="sow.html" data-module-id="sow" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📋</span>
           <span>Scheme</span>
-        </a><a href="messages.html" data-module-id="messages" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
+        </a><a href="messages.html" data-module-id="messages" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📱</span>
           <span>Messaging</span>
         </a><a href="announcements.html" data-module-id="announcements" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
@@ -211,7 +211,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="assignments.html" data-module-id="assignments" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📝</span>
           <span>Assignments</span>
-        </a><a href="parents.html" data-module-id="parents" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+        </a><a href="parents.html" data-module-id="parents" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="active">
           <span class="app-nav-icon">👨‍👩‍👧</span>
           <span>Parent–Child</span>
         </a><a href="idcards.html" data-module-id="idcards" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
@@ -334,9 +334,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="developer.html" data-module-id="developer" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👨‍💻</span>
           <span>About the Developer</span>
-        </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
-          <span class="app-nav-icon">🧮</span>
-          <span>Activity Log</span>
         </a><a href="lesson_plans.html" data-module-id="lesson_plans" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🗒️</span>
           <span>Lesson Plans</span>
@@ -349,6 +346,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="substitutions.html" data-module-id="substitutions" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🔁</span>
           <span>Substitutions</span>
+        </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+          <span class="app-nav-icon">🧮</span>
+          <span>Activity Log</span>
         </a><a href="inbox.html" data-module-id="inbox" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">💬</span>
           <span>Inbox</span>
@@ -361,6 +361,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="lost_found.html" data-module-id="lost_found" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">🔍</span>
           <span>Lost &amp; Found</span>
+        </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
+          <span class="app-nav-icon">📈</span>
+          <span>Reports</span>
         </a><a href="school_calendar.html" data-module-id="school_calendar" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📅</span>
           <span>Calendar</span>
@@ -373,9 +376,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="donations.html" data-module-id="donations" data-role-allow="super_admin admin principal proprietor head_teacher bursar parent" class="">
           <span class="app-nav-icon">💝</span>
           <span>Donations</span>
-        </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
-          <span class="app-nav-icon">📈</span>
-          <span>Reports</span>
         </a><a href="student-profile.html" data-module-id="student-profile" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👤</span>
           <span>Student Profile</span>
@@ -385,6 +385,12 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="academic-records.html" data-module-id="academic-records" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📄</span>
           <span>Academic Records</span>
+        </a><a href="verify-certificate.html" data-module-id="verify-certificate" data-role-allow="any all public super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
+          <span class="app-nav-icon">🔎</span>
+          <span>Verify Certificate</span>
+        </a><a href="teacher-overview.html" data-module-id="teacher-overview" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+          <span class="app-nav-icon">👨‍🏫</span>
+          <span>Teacher Overview</span>
         </a><a href="feature-guide.html" data-module-id="feature-guide" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📘</span>
           <span>Feature Guide</span>
@@ -409,7 +415,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
   <main class="app-main">
     <header class="app-topbar">
       <button class="mobile-toggle" onclick="App.toggleSidebar()" title="Menu">☰</button>
-      <h1 class="app-page-title">Parent–Child Mapping</h1>
+      <h1 class="app-page-title">Parents</h1>
       <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
         
         <button class="btn btn-sm btn-outline" onclick="if(window.Super)Super.chatbot.explainPage()" title="About this page">ℹ️ Help</button>
@@ -421,33 +427,13 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
     <div class="app-content">
       
       <div class="card" style="margin-bottom:16px;background:#eef2ff;border-color:#c7d2fe">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer" onclick="var b=document.getElementById('pg-more');b.style.display=b.style.display==='none'?'block':'none'">
-        <div><strong>ℹ️ What is this page?</strong> <span style="color:var(--gray-700)">Link parents/guardians to their children.</span></div>
-        <span style="color:var(--primary)">▼</span>
+        <h3 style="margin-top:0">👨‍👩‍👧 Parent / Guardian Registry</h3>
+        <p style="color:var(--gray-700);line-height:1.7;margin:0">Use this dedicated admin page to create, view and edit parent/guardian records and link them to children. Parent logins are still created through Supabase Auth/signup for security; this page stores the school-side profile and mapping so the parent dashboard can show the correct child.</p>
       </div>
-      <div id="pg-more" style="display:none;margin-top:10px">
-        <p style="margin:4px 0;color:var(--gray-700)"><strong>Who uses it:</strong> Admin / office staff.</p>
-        <p style="margin:8px 0 4px;color:var(--gray-700)"><strong>How to use it:</strong></p>
-        <ol style="margin:0;padding-left:20px;color:var(--gray-700);line-height:1.7"><li>Click <b>+ Add new</b>.</li><li>Pick the <b>parent</b> from the dropdown (registered parent accounts).</li><li>Pick the <b>student</b> from the class-grouped, searchable list and set the relationship.</li></ol>
-        <p style="margin:8px 0 4px;color:var(--gray-700)"><strong>Advantages:</strong></p><ul style="margin:0;padding-left:20px;color:var(--gray-700);line-height:1.7"><li>Both parent and student chosen from lists — no typing IDs</li><li>Searchable pickers</li><li>Powers the parent portal</li></ul>
-        <p style="margin:8px 0 0;color:var(--gray-700)"><strong>Benefit to the school:</strong> Accurate family links so parents see exactly their own children.</p>
-        <p style="margin:10px 0 0;font-size:.85rem;color:var(--gray-500)">Tip: click the <strong>ℹ️ Help</strong> button in the top bar, or the 💬 assistant, for the full explanation of any page.</p>
-      </div></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
-        <button class="btn btn-primary" onclick="CRUD.openForm('parents')" data-staff-only>+ Add new</button>
-        <button class="btn btn-outline" onclick="CRUD.renderList('parents')">↻ Refresh</button>
-        <button class="btn btn-outline" onclick="CRUD.exportCSV('parents')" data-staff-only>⬇ Export CSV</button>
-        <button class="btn btn-outline" onclick="CRUD.exportPDF('parents')" data-staff-only>📄 Export PDF</button>
-        <button class="btn btn-outline" onclick="CRUD.importCSV('parents')" data-admin-only>⬆ Import CSV</button>
-        
-        
-        
-        
-        
+      <div class="grid grid-2">
+        <div class="card"><h3>Parent records</h3><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn btn-primary" onclick="PR.openParent()">+ Add parent</button><button class="btn btn-outline" onclick="PR.loadParents()">Refresh</button></div><div id="pr-parents">Loading…</div></div>
+        <div class="card"><h3>Link parent to child</h3><div class="form-group"><label>Parent</label><select class="form-select" id="pr-parent"></select></div><div class="form-group"><label>Student</label><select class="form-select" id="pr-student"></select></div><div class="form-group"><label>Relationship</label><select class="form-select" id="pr-rel"><option>parent</option><option>father</option><option>mother</option><option>guardian</option><option>sponsor</option></select></div><button class="btn btn-primary" onclick="PR.link()">Link parent to child</button><div id="pr-links" style="margin-top:12px"></div></div>
       </div>
-      
-      <div class="table-wrap"><table id="parents-table"><thead><tr><th>Loading…</th></tr></thead><tbody><tr><td><span class="pulse">Loading…</span></td></tr></tbody></table></div>
-      <script>document.addEventListener('DOMContentLoaded',function(){ if(window.CRUD) CRUD.renderList('parents'); });</script>
     </div>
     <footer style="padding:20px 28px;border-top:1px solid var(--gray-200);font-size:0.82rem;color:var(--gray-500);text-align:center">
       © 2026 God of Seed Academy · Built by <a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">Adewale Samson Adeagbo</a> · Powered by <a href="https://hmgconcepts.pages.dev/" target="_blank" rel="noopener">HMG Concepts</a> · <a href="developer.html">About the developer</a>
@@ -473,4 +459,19 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
   if (window.Enterprise) Enterprise.init(sb);
   if (window.CRUD) CRUD.init(sb);
 </script>
-</body></html>
+<script>
+const PR={parents:[],students:[],links:[],
+ async init(){await Promise.all([this.loadParents(),this.loadStudents(),this.loadLinks()]);},
+ async loadParents(){ if(!sb)return; const {data}=await sb.from('profiles').select('id,full_name,email,phone,role,status,member_id').eq('role','parent').order('full_name'); this.parents=data||[]; this.renderParents(); this.fill();},
+ async loadStudents(){ if(!sb)return; const {data}=await sb.from('students').select('id,full_name,class,admission_no').order('class').order('full_name').limit(3000); this.students=data||[]; this.fill();},
+ async loadLinks(){ if(!sb)return; const {data}=await sb.from('parent_child').select('*').limit(3000); this.links=data||[]; this.renderLinks();},
+ fill(){ const pp=document.getElementById('pr-parent'), ss=document.getElementById('pr-student'); if(pp) pp.innerHTML='<option value="">— parent —</option>'+this.parents.map(p=>'<option value="'+p.id+'">'+esc(p.full_name||p.email||p.id)+'</option>').join(''); if(ss) ss.innerHTML='<option value="">— student —</option>'+this.students.map(s=>'<option value="'+s.id+'">'+esc((s.class? s.class+' · ':'')+(s.full_name||'')+(s.admission_no?' ('+s.admission_no+')':''))+'</option>').join('');},
+ renderParents(){ const box=document.getElementById('pr-parents'); if(!box)return; box.innerHTML=this.parents.length?'<div class="table-wrap"><table><thead><tr><th>Name</th><th>Email/Login</th><th>Phone</th><th>Status</th><th>Edit</th></tr></thead><tbody>'+this.parents.map(p=>'<tr><td>'+esc(p.full_name||'')+'</td><td>'+esc(p.email||'')+'</td><td>'+esc(p.phone||'')+'</td><td><span class="badge">'+esc(p.status||'active')+'</span></td><td><button class="btn btn-sm btn-outline" onclick="PR.openParent(\''+p.id+'\')">Edit</button></td></tr>').join('')+'</tbody></table></div>':'<p>No parent records yet.</p>';},
+ renderLinks(){ const box=document.getElementById('pr-links'); if(!box)return; box.innerHTML=this.links.length?'<div class="table-wrap"><table><thead><tr><th>Parent</th><th>Student</th><th>Relationship</th></tr></thead><tbody>'+this.links.slice(0,50).map(l=>{const p=this.parents.find(x=>x.id===l.parent_id)||{}, st=this.students.find(x=>x.id===l.student_id)||{}; return '<tr><td>'+esc(p.full_name||l.parent_id)+'</td><td>'+esc(st.full_name||l.student_id)+'</td><td>'+esc(l.relationship||'parent')+'</td></tr>';}).join('')+'</tbody></table></div>':'<p>No links yet.</p>';},
+ openParent(id){ const p=this.parents.find(x=>x.id===id)||{}; openModal((id?'Edit':'Add')+' parent','<div class="form-group"><label>Full name</label><input class="form-input" id="pm-name" value="'+esc(p.full_name||'')+'"></div><div class="form-group"><label>Email / login email</label><input class="form-input" id="pm-email" type="email" value="'+esc(p.email||'')+'"></div><div class="form-group"><label>Phone</label><input class="form-input" id="pm-phone" value="'+esc(p.phone||'')+'"></div><div class="form-group"><label>Status</label><select class="form-select" id="pm-status"><option>active</option><option>pending</option><option>suspended</option></select></div><p style="color:var(--gray-600)">Login note: ask the parent to use this email on the Login page → Request access. Admin then approves the Supabase auth profile. Static sites cannot safely create passwords directly without a server/service-role key.</p>','<button class="btn btn-outline" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="PR.saveParent(\''+(id||'')+'\')">Save</button>'); setTimeout(()=>{const st=document.getElementById('pm-status'); if(st)st.value=p.status||'active';},0);},
+ async saveParent(id){ const row={full_name:document.getElementById('pm-name').value.trim(),email:document.getElementById('pm-email').value.trim(),phone:document.getElementById('pm-phone').value.trim(),role:'parent',status:document.getElementById('pm-status').value}; if(!row.email){toast('Parent email/login email is required','warning');return;} if(!id){ const invite='Parent login invitation for '+row.full_name+'
+Email: '+row.email+'
+Instruction: open login.html, click Request access, choose Parent, create password, then admin approves in Approvals.'; try{navigator.clipboard&&navigator.clipboard.writeText(invite);}catch(e){} openModal('Parent login invitation','<p>This static site cannot safely create an auth password without a server/service-role key. Send this invitation to the parent, then approve the account after signup.</p><textarea class="form-input" rows="6">'+esc(invite)+'</textarea>','<button class="btn btn-primary" onclick="closeModal()">OK</button>'); return;} const {error}=await sb.from('profiles').update(row).eq('id',id); if(error){toast(error.message,'danger');return;} closeModal(); toast('Parent saved','success'); this.loadParents();},
+ async link(){ const row={parent_id:document.getElementById('pr-parent').value,student_id:document.getElementById('pr-student').value,relationship:document.getElementById('pr-rel').value}; if(!row.parent_id||!row.student_id){toast('Pick parent and student','warning');return;} const {error}=await sb.from('parent_child').upsert(row,{onConflict:'parent_id,student_id'}); if(error){toast(error.message,'danger');return;} toast('Linked','success'); this.loadLinks();}
+}; document.addEventListener('DOMContentLoaded',()=>PR.init()); PR.init();
+</script></body></html>

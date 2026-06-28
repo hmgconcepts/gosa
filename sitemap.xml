@@ -80,15 +80,16 @@
   <url><loc>/facility_booking.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/compliance.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/developer.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>/activity_log.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/lesson_plans.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/behaviour.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/support_plans.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/substitutions.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>/activity_log.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/inbox.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/helpdesk.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/parent_meeting.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/lost_found.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>/reports.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/school_calendar.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/book_request.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>/payments_online.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>

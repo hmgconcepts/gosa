@@ -6,7 +6,7 @@
 <title>Student Dashboard • God of Seed Academy</title>
 <meta name="description" content="God of Seed Academy — Student Dashboard. Free school management platform by HMG Concepts.">
 <meta name="keywords" content="God of Seed Academy, school management, GOSA, HMG Concepts">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#0506ae">
 <link rel="icon" type="image/png" href="assets/img/logo.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
    Final UI/UX repair: stable, professional navigation for every layout.
    Prevents scattered icons/labels, fixes unsupported layout IDs, and keeps
    large module lists readable on desktop and mobile. */
-:root{--primary:#0f172a;--primary-dark:#0f172a;--primary-light:#2563eb;--accent:#2563eb;--gradient:linear-gradient(135deg,#0f172a,#2563eb);--gradient-dark:linear-gradient(135deg,#0f172a,#2563eb);--font:'Manrope',system-ui,sans-serif;--sc-primary:#0f172a;--sc-accent:#2563eb}
+:root{--primary:#0506ae;--primary-dark:#0506ae;--primary-light:#964eec;--accent:#964eec;--gradient:linear-gradient(135deg,#0506ae,#964eec);--gradient-dark:linear-gradient(135deg,#0506ae,#964eec);--font:'Plus Jakarta Sans',system-ui,sans-serif;--sc-primary:#0506ae;--sc-accent:#964eec}
 body{font-family:var(--font)!important;background:#f8fafc}
 .app-layout{display:flex;min-height:100vh;background:#f8fafc;color:#0f172a}
 .app-sidebar{width:286px;flex-shrink:0;background:rgba(255,255,255,.98);border-right:1px solid #e2e8f0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden;z-index:40;box-shadow:0 10px 25px rgba(15,23,42,.04)}
@@ -59,7 +59,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
 @media(min-width:901px){.app-topbar .mobile-toggle{display:none}}
 </style>
 </head>
-<body data-theme="theme9" data-school="God of Seed Academy" data-font="manrope">
+<body data-theme="theme15" data-school="God of Seed Academy" data-font="plusjakarta">
 
 <div id="notif-bell" class="notif-bell" title="Notifications" data-chatbot>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -190,7 +190,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="sow.html" data-module-id="sow" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📋</span>
           <span>Scheme</span>
-        </a><a href="messages.html" data-module-id="messages" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
+        </a><a href="messages.html" data-module-id="messages" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📱</span>
           <span>Messaging</span>
         </a><a href="announcements.html" data-module-id="announcements" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
@@ -334,9 +334,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="developer.html" data-module-id="developer" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👨‍💻</span>
           <span>About the Developer</span>
-        </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
-          <span class="app-nav-icon">🧮</span>
-          <span>Activity Log</span>
         </a><a href="lesson_plans.html" data-module-id="lesson_plans" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🗒️</span>
           <span>Lesson Plans</span>
@@ -349,6 +346,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="substitutions.html" data-module-id="substitutions" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🔁</span>
           <span>Substitutions</span>
+        </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+          <span class="app-nav-icon">🧮</span>
+          <span>Activity Log</span>
         </a><a href="inbox.html" data-module-id="inbox" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">💬</span>
           <span>Inbox</span>
@@ -361,6 +361,9 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="lost_found.html" data-module-id="lost_found" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">🔍</span>
           <span>Lost &amp; Found</span>
+        </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
+          <span class="app-nav-icon">📈</span>
+          <span>Reports</span>
         </a><a href="school_calendar.html" data-module-id="school_calendar" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📅</span>
           <span>Calendar</span>
@@ -373,9 +376,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="donations.html" data-module-id="donations" data-role-allow="super_admin admin principal proprietor head_teacher bursar parent" class="">
           <span class="app-nav-icon">💝</span>
           <span>Donations</span>
-        </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
-          <span class="app-nav-icon">📈</span>
-          <span>Reports</span>
         </a><a href="student-profile.html" data-module-id="student-profile" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👤</span>
           <span>Student Profile</span>
@@ -385,6 +385,12 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="academic-records.html" data-module-id="academic-records" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📄</span>
           <span>Academic Records</span>
+        </a><a href="verify-certificate.html" data-module-id="verify-certificate" data-role-allow="any all public super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
+          <span class="app-nav-icon">🔎</span>
+          <span>Verify Certificate</span>
+        </a><a href="teacher-overview.html" data-module-id="teacher-overview" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
+          <span class="app-nav-icon">👨‍🏫</span>
+          <span>Teacher Overview</span>
         </a><a href="feature-guide.html" data-module-id="feature-guide" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">📘</span>
           <span>Feature Guide</span>
@@ -456,7 +462,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
   if (window.CRUD) CRUD.init(sb);
 </script>
 <script>
-const SP={
+const SP={fees:[],student:null,
   async init(){ if(!sb)return;
     var {data}=await sb.from('students').select('id,full_name,class').order('class').order('full_name').limit(2000);
     var sel=document.getElementById('sp-pick'); if(sel){ var groups={}; (data||[]).forEach(s=>{(groups[s.class||'Unassigned']=groups[s.class||'Unassigned']||[]).push(s);});
@@ -464,7 +470,7 @@ const SP={
     // deep-link or auto-load own profile
     var q=new URLSearchParams(location.search).get('student');
     if(q){ if(sel)sel.value=q; this.load(q); }
-    else { try{ var prof=(window.SC_PROFILE||{}); if(prof.student_id) this.load(prof.student_id); }catch(e){} }
+    else { try{ var prof=(window.SC_PROFILE||{}); if(prof.student_id) this.load(prof.student_id); else if(prof.role==='parent' && prof.id){ const pc=await sb.from('parent_child').select('student_id').eq('parent_id',prof.id).limit(1); if(pc.data&&pc.data[0]) this.load(pc.data[0].student_id); else document.getElementById('sp-view').innerHTML='<div class="card"><h3>No child linked yet</h3><p>Your parent account is active, but no student has been mapped to you. Please contact the school admin to link your child on the Parents page.</p></div>'; } }catch(e){} }
   },
   cur(currency){ return (window.SCHOOL&&SCHOOL.currency)||currency||'₦'; },
   async load(id){ if(!id||!sb){return;} var box=document.getElementById('sp-view'); box.innerHTML='<p class="pulse">Loading…</p>';
@@ -475,7 +481,7 @@ const SP={
     try{ var r2=await sb.from('results').select('*').eq('student_name',name).limit(500); results=r2.data||[]; }catch(e){}
     try{ var r3=await sb.from('attendance').select('status').eq('student_name',name).limit(2000); var rows=r3.data||[]; att.total=rows.length; att.present=rows.filter(x=>x.status==='present').length; }catch(e){}
     try{ var r4=await sb.from('behaviour_points').select('*').eq('student_name',name).limit(200); awards=r4.data||[]; }catch(e){}
-    var totalPaid=fees.reduce((a,b)=>a+(Number(b.amount_paid)||0),0);
+    this.fees=fees; this.student=s; var totalPaid=fees.reduce((a,b)=>a+(Number(b.amount_paid)||0),0);
     var cur=this.cur();
     var photo=window.Super?Super.media.thumb(s.photo_url||'',{w:90,h:90}):'';
     box.innerHTML=
@@ -490,8 +496,8 @@ const SP={
       '<div class="grid grid-2">'+
         '<div class="card"><h3 style="margin-top:0">💰 Fees & Payment History</h3>'+
           '<p>Total paid: <b>'+cur+totalPaid.toLocaleString()+'</b> over '+fees.length+' payment(s)</p>'+
-          (fees.length?'<div class="table-wrap"><table><thead><tr><th>Date</th><th>Amount</th><th>Method</th><th>Term</th></tr></thead><tbody>'+
-            fees.map(f=>'<tr><td>'+esc((f.created_at||'').slice(0,10))+'</td><td>'+cur+Number(f.amount_paid||0).toLocaleString()+'</td><td>'+esc(f.method||'')+'</td><td>'+esc(f.term||'')+'</td></tr>').join('')+'</tbody></table></div>':'<p style="color:var(--gray-500)">No payments recorded.</p>')+'</div>'+
+          (fees.length?'<div class="table-wrap"><table><thead><tr><th>Date</th><th>Amount</th><th>Method</th><th>Term</th><th>Receipt</th></tr></thead><tbody>'+
+            fees.map((f,i)=>'<tr><td>'+esc((f.created_at||'').slice(0,10))+'</td><td>'+cur+Number(f.amount_paid||0).toLocaleString()+'</td><td>'+esc(f.method||'')+'</td><td>'+esc(f.term||'')+'</td><td><button class="btn btn-sm btn-outline" onclick="SP.receipt('+i+')">Print</button></td></tr>').join('')+'</tbody></table></div>':'<p style="color:var(--gray-500)">No payments recorded.</p>')+'</div>'+
         '<div class="card"><h3 style="margin-top:0">📊 Attendance & Awards</h3>'+
           '<p>Attendance: <b>'+att.present+'</b> present of '+att.total+' record(s) ('+(att.total?Math.round(att.present/att.total*100):0)+'%)</p>'+
           '<p>Awards / behaviour points: <b>'+awards.length+'</b></p>'+
@@ -500,7 +506,8 @@ const SP={
       '<div class="card" style="margin-top:16px"><h3 style="margin-top:0">📝 Results / Scores</h3>'+
         (results.length?'<div class="table-wrap"><table><thead><tr><th>Subject</th><th>Term</th><th>CA</th><th>Exam</th><th>Total</th><th>Grade</th></tr></thead><tbody>'+
           results.map(r=>{var ca=(Number(r.ca1)||0)+(Number(r.ca2)||0)+(Number(r.ca3)||0);var tot=ca+(Number(r.exam)||0);return '<tr><td>'+esc(r.subject||'')+'</td><td>'+esc(r.term||'')+'</td><td>'+ca+'</td><td>'+(r.exam||0)+'</td><td><b>'+tot+'</b></td><td>'+esc(r.grade||'')+'</td></tr>';}).join('')+'</tbody></table></div>':'<p style="color:var(--gray-500)">No results recorded yet.</p>')+'</div>';
-  }
+  },
+  receipt(i){ const f=this.fees[i], s=this.student||{}, sc=window.SCHOOL||{}, cur=this.cur(); if(!f)return; const sig=localStorage.getItem('sc-signature-url')||'', pn=localStorage.getItem('sc-principal-name')||'Bursar/Principal'; const sign=sig?'<div style="margin-top:28px;text-align:center"><img src="'+sig+'" style="max-width:150px;max-height:70px;object-fit:contain"><br><b>'+pn+'</b><br>Official Signature</div>':''; const html='<div style="width:620px;max-width:96vw;border:2px solid #111;padding:28px;font-family:Arial,sans-serif"><h2 style="text-align:center;margin:0">'+esc(sc.name||'School')+'</h2><p style="text-align:center;margin:4px 0 18px">E-RECEIPT</p><p><b>Student:</b> '+esc(s.full_name||'')+' &nbsp; <b>Class:</b> '+esc(s.class||'')+'</p><p><b>Amount:</b> '+cur+Number(f.amount_paid||0).toLocaleString()+'</p><p><b>Method:</b> '+esc(f.method||'')+' &nbsp; <b>Reference:</b> '+esc(f.reference||f.id||'')+'</p><p><b>Term:</b> '+esc(f.term||'')+' &nbsp; <b>Date:</b> '+esc((f.created_at||new Date().toISOString()).slice(0,10))+'</p><p style="font-size:.8rem;color:#555">This receipt was generated electronically from the school portal.</p>'+sign+'</div>'; const w=window.open('','_blank'); w.document.write('<html><body style="display:flex;justify-content:center;padding:20px">'+html+'<script>window.onload=()=>window.print()</script></body></html>'); w.document.close(); }
 };
 document.addEventListener('DOMContentLoaded',()=>SP.init()); SP.init();
 </script></body></html>

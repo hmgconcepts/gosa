@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CBT / Online Exams • God of Seed Academy</title>
-<meta name="description" content="God of Seed Academy — CBT / Online Exams. Free school management platform by HMG Concepts.">
+<title>Teacher Overview • God of Seed Academy</title>
+<meta name="description" content="God of Seed Academy — Teacher Overview. Free school management platform by HMG Concepts.">
 <meta name="keywords" content="God of Seed Academy, school management, GOSA, HMG Concepts">
 <meta name="theme-color" content="#0506ae">
 <link rel="icon" type="image/png" href="assets/img/logo.png">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<meta property="og:title" content="CBT / Online Exams • God of Seed Academy">
+<meta property="og:title" content="Teacher Overview • God of Seed Academy">
 <meta property="og:description" content="God of Seed Academy — Free school management by HMG Concepts">
 <meta property="og:image" content="assets/img/og-cover.svg">
 <meta property="og:type" content="website">
@@ -99,7 +99,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
     <div id="modal-footer" class="modal-footer"></div>
   </div>
 </div>
-<div class="app-layout sidebar" data-require-role="staff">
+<div class="app-layout sidebar" data-require-role="admin">
   <aside class="app-sidebar" id="app-sidebar">
       <div class="app-brand">
         <img src="assets/img/logo.png" alt="God of Seed Academy" style="object-fit:contain" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{textContent:('G'),style:'width:40px;height:40px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900'}))">
@@ -415,7 +415,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
   <main class="app-main">
     <header class="app-topbar">
       <button class="mobile-toggle" onclick="App.toggleSidebar()" title="Menu">☰</button>
-      <h1 class="app-page-title">CBT / Online Exams</h1>
+      <h1 class="app-page-title">Teacher Overview</h1>
       <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
         
         <button class="btn btn-sm btn-outline" onclick="if(window.Super)Super.chatbot.explainPage()" title="About this page">ℹ️ Help</button>
@@ -425,25 +425,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
       </div>
     </header>
     <div class="app-content">
-      
-      <div class="card" style="margin-bottom:14px" data-staff-only>
-        <h3 style="margin-top:0">CBT Action Centre</h3>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <button type="button" class="btn btn-primary" data-cbt-action="newExam">➕ New Exam / Test</button>
-          <button type="button" class="btn btn-outline" data-cbt-action="downloadTemplate">⬇ CSV Template</button>
-          <button type="button" class="btn btn-outline" data-cbt-action="promptGuide">🧩 Question Prompt Guide</button>
-          <button type="button" class="btn btn-outline" data-cbt-action="refresh">↻ Refresh</button>
-        </div>
-      </div>
-      <div class="card" style="margin-bottom:18px">
-        <p style="color:var(--gray-600);margin:0">
-          Create online exams, tests, assignments, projects and quizzes with <strong>17 question types</strong>,
-          timer, randomisation, negative marking, anti-cheat and certificates. Share a 6-character
-          <strong>code</strong> or a direct link — students need no account. Map each assessment to a
-          <strong>report-card column</strong> and results flow automatically into the student's report card.
-        </p>
-      </div>
-      <div id="cbt-list"><span class="pulse">Loading exams…</span></div>
+      <div class="card" style="margin-bottom:16px;background:#eef2ff;border-color:#c7d2fe"><h3 style="margin-top:0">👨‍🏫 Teacher / Staff Dashboard Overview</h3><p style="color:var(--gray-700);line-height:1.7;margin:0">Admin-only overview of a teacher's operational dashboard: assigned subjects, attendance work, results entered, CBT exams, scheme of work, lesson plans and messages.</p></div><div id="to-view"><p class="pulse">Loading…</p></div>
     </div>
     <footer style="padding:20px 28px;border-top:1px solid var(--gray-200);font-size:0.82rem;color:var(--gray-500);text-align:center">
       © 2026 God of Seed Academy · Built by <a href="https://cssadewale.pages.dev" target="_blank" rel="noopener">Adewale Samson Adeagbo</a> · Powered by <a href="https://hmgconcepts.pages.dev/" target="_blank" rel="noopener">HMG Concepts</a> · <a href="developer.html">About the developer</a>
@@ -469,178 +451,6 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
   if (window.Enterprise) Enterprise.init(sb);
   if (window.CRUD) CRUD.init(sb);
 </script>
-<script src="assets/js/cbt-engine.js"></script>
 <script>
-CBT.init(sb);
-const CBTUI = {
-  async refresh(){
-    const box = document.getElementById('cbt-list');
-    if(!sb){ box.innerHTML = '<div class="card">⚠️ Database not configured. Add your Supabase keys in assets/js/config.js.</div>'; return; }
-    const { data, error } = await CBT.listExams();
-    if(error){ box.innerHTML = '<div class="card">Could not load exams: '+esc(error.message)+'</div>'; return; }
-    if(!data || !data.length){ box.innerHTML = '<div class="card">No exams yet. Click <strong>+ New Exam / Test</strong> to create one.</div>'; return; }
-    box.innerHTML = '<div class="table-wrap"><table><thead><tr><th>Code</th><th>Subject</th><th>Type</th><th>Class</th><th>Report column</th><th>Status</th><th>Actions</th></tr></thead><tbody>'+
-      data.map(e=>'<tr><td><strong>'+esc(e.code)+'</strong></td><td>'+esc(e.subject)+'</td><td>'+esc(e.assessment_type)+'</td><td>'+esc(e.class||'-')+'</td><td>'+esc(e.report_column||'-')+'</td><td>'+(e.is_open?'<span class=\'badge badge-success\'>Open</span>':'<span class=\'badge\'>Closed</span>')+'</td>'+
-        '<td style="white-space:nowrap">'+
-          '<button class="btn btn-sm btn-outline" onclick="CBTUI.toggle(\''+e.id+'\','+(!e.is_open)+')">'+(e.is_open?'Close':'Open')+'</button> '+
-          '<button class="btn btn-sm btn-outline" onclick="CBTUI.share(\''+esc(e.code)+'\')">Share</button> '+
-          '<button class="btn btn-sm btn-outline" onclick="CBTUI.results(\''+e.id+'\',\''+esc(e.code)+'\')">Results</button> '+
-          '<button class="btn btn-sm btn-outline" data-admin-only onclick="CBTUI.del(\''+e.id+'\')">Delete</button>'+
-        '</td></tr>').join('')+'</tbody></table></div>';
-  },
-  newExam(){
-    const subj = (window.SCHOOL&&window.SCHOOL.modules)?'':'';
-    openModal('New Exam / Test', `
-      <div class="form-group"><label>Title</label><input class="form-input" id="ex-title" placeholder="First Term Maths Test"></div>
-      <div class="grid grid-2">
-        <div class="form-group"><label>Subject</label><select class="form-select" id="ex-subject"><option value="">— select subject —</option></select></div>
-        <div class="form-group"><label>Class</label><select class="form-select" id="ex-class"><option value="">— select class —</option></select></div>
-        <div class="form-group"><label>Term</label><select class="form-select" id="ex-term"><option value="">— select term —</option></select></div>
-        <div class="form-group"><label>Session</label><select class="form-select" id="ex-session"><option value="">— select session —</option></select></div>
-        <div class="form-group"><label>Assessment type</label><select class="form-select" id="ex-type"><option value="exam">Exam</option><option value="test">Test</option><option value="ca">CA</option><option value="assignment">Assignment</option><option value="project">Project</option><option value="quiz">Quiz</option><option value="practical">Practical</option></select></div>
-        <div class="form-group"><label>Report-card column (auto-maps result)</label><input class="form-input" id="ex-col" placeholder="e.g. CA1 or Exam"></div>
-        <div class="form-group"><label>Max score in report card</label><input class="form-input" type="number" id="ex-max" value="100"></div>
-        <div class="form-group"><label>Duration (minutes)</label><input class="form-input" type="number" id="ex-dur" value="45"></div>
-        <div class="form-group"><label>Attempt limit</label><input class="form-input" type="number" id="ex-attempts" value="1"></div>
-        <div class="form-group"><label>Starts at (optional)</label><input class="form-input" type="datetime-local" id="ex-start"></div>
-        <div class="form-group"><label>Closes at (optional)</label><input class="form-input" type="datetime-local" id="ex-close"></div>
-        <div class="form-group"><label>Negative mark / wrong</label><input class="form-input" type="number" step="0.01" id="ex-neg" value="0"></div>
-        <div class="form-group"><label>Questions to deliver (0 = all)</label><input class="form-input" type="number" id="ex-sel" value="0"></div>
-        <div class="form-group"><label><input type="checkbox" id="ex-rand" checked> Randomise questions/options</label></div>
-        <div class="form-group"><label><input type="checkbox" id="ex-cert" checked> Issue certificate after exam</label></div>
-        <div class="form-group"><label><input type="checkbox" id="ex-release" checked> Release result instantly</label></div>
-      </div>
-      <div class="form-group"><label>Instructions</label><textarea class="form-input" id="ex-instr" rows="2" placeholder="Read each question carefully…"></textarea></div>
-      <div class="card" style="margin:10px 0;background:#f8fafc"><h4 style="margin-top:0">Anti-cheat / exam integrity settings</h4><div class="grid grid-2">
-        <label><input type="checkbox" id="ac-tab" checked> Detect tab/app switching</label><label><input type="checkbox" id="ac-blur" checked> Detect window blur/focus loss</label>
-        <label><input type="checkbox" id="ac-copy" checked> Block copy/cut/paste/select-all</label><label><input type="checkbox" id="ac-right" checked> Block right-click/context menu</label>
-        <label><input type="checkbox" id="ac-full" checked> Require fullscreen monitoring</label><label><input type="checkbox" id="ac-dev" checked> Detect devtools/print/source shortcuts</label>
-        <div class="form-group"><label>Violation limit before auto-submit</label><input class="form-input" type="number" id="ac-max" value="5"></div><label><input type="checkbox" id="ac-math" checked> Show math/science keyboard</label>
-      </div><p style="color:var(--gray-500);font-size:.82rem">These are free browser-based integrity checks adapted from HMG CBT Pro. Use human invigilation for high-stakes exams.</p></div>
-      <div class="form-group"><label>Questions CSV (paste or choose a .csv file)</label>
-        <input type="file" id="ex-file" accept=".csv" class="form-input" onchange="CBTUI._readFile(event)">
-        <textarea class="form-input" id="ex-csv" rows="5" style="margin-top:8px;font-family:monospace;font-size:.8rem" placeholder="Question,A,B,C,D,CorrectAnswer,..."></textarea>
-        <small style="color:var(--gray-500)">Need the format? Click "CSV Template" on the page.</small>
-      </div>
-    `, '<button class="btn btn-outline" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="CBTUI.save()">Create exam</button>'); setTimeout(()=>CBTUI.populateExamLookups(),50);
-  },
-  promptGuide(){
-    const txt = [
-      'SCHOOL CONNECT CBT PRO — STRUCTURED QUESTION-BANK PROMPT (NO RUNTIME AI API)',
-      '',
-      'ROLE',
-      'Act as a senior examiner, curriculum specialist, psychometric reviewer and classroom teacher. Produce a clean CSV question bank that can be pasted directly into School Connect CBT.',
-      '',
-      'ASSESSMENT CONTEXT',
-      'School: [SCHOOL NAME]',
-      'Subject: [SUBJECT]',
-      'Class/Level: [CLASS]',
-      'Term/Session: [TERM] [SESSION]',
-      'Topic(s): [TOPICS]',
-      'Exam type: [Quiz / CA / Assignment / Project / Practical / Exam / Entrance]',
-      'Number of questions: [COUNT]',
-      'Duration: [MINUTES]',
-      'Learner standard: Nigerian curriculum plus international assessment best practice.',
-      '',
-      'OUTPUT FORMAT — CSV ONLY',
-      'Return DOWNLOADABLE CSV only. Do not add markdown, numbering, commentary, code fences, or explanations outside the CSV.',
-      'Use this exact header:',
-      'Question,A,B,C,D,CorrectAnswer,Explanation,Type,Tolerance,Unit,Accept,MRQ_AON,Pairs,Items,Difficulty,Tags,Section',
-      '',
-      'SUPPORTED TYPES',
-      'mcq, truefalse, numeric, short, mrq, essay, matching, ordering, cloze, categorization, multinumeric, assertion_reason, case_study, image_mcq, matrix, hot_text, code',
-      '',
-      'QUALITY RULES',
-      '1. Questions must be age-appropriate, unambiguous and syllabus-aligned.',
-      '2. Mix cognitive levels: recall, understanding, application, analysis and problem-solving.',
-      '3. Balance difficulty: 30% Easy, 50% Medium, 20% Hard.',
-      '4. Avoid repeated questions, duplicated answers and trick wording.',
-      '5. Every auto-gradable item must have a correct answer.',
-      '6. Every item must include a concise Explanation for teacher review and student feedback.',
-      '7. Use Tags for topic/subtopic and Section for paper section.',
-      '',
-      'TYPE RULES',
-      '- mcq: options A-D; CorrectAnswer must be A/B/C/D.',
-      '- truefalse: use A=True, B=False; CorrectAnswer A or B.',
-      '- mrq: CorrectAnswer like A|C. If MRQ_AON is TRUE, award all-or-nothing; otherwise partial credit is allowed.',
-      '- numeric: CorrectAnswer is a number; Tolerance may be 0.01 etc; Unit optional.',
-      '- short: CorrectAnswer is preferred text; Accept can contain alternatives separated by |.',
-      '- matching: put pairs in Pairs as left:right|left:right.',
-      '- ordering: put correct sequence in Items as JSON array or pipe list.',
-      '- cloze: use blanks like [blank1]; put answers in Items JSON.',
-      '- categorization/matrix/hot_text/code/case_study: use Items JSON, valid and compact.',
-      '- essay: CorrectAnswer may contain marking guide; not auto-graded.',
-      '',
-      'FINAL CHECK',
-      'Before returning, silently verify that the CSV has the exact header, all rows have the same number of columns, quotes are escaped properly, and no markdown is included.',
-      ''
-    ].join('\n');
-    openModal('Structured CBT Question Prompt', '<textarea class="form-input" rows="18" style="font-family:monospace">'+esc(txt)+'</textarea><p style="color:var(--gray-600)">Copy this into any AI assistant manually, then paste the returned CSV into School Connect. The platform itself uses no AI API.</p>', '<button class="btn btn-outline" onclick="closeModal()">Close</button><button class="btn btn-primary" id="copy-cbt-prompt">Copy prompt</button>');
-    setTimeout(()=>{ const b=document.getElementById('copy-cbt-prompt'); if(b) b.onclick=()=>{ navigator.clipboard&&navigator.clipboard.writeText(document.querySelector('#modal-body textarea').value); toast('Prompt copied','success'); }; },0);
-  },
-
-  async populateExamLookups(){
-    if(!sb)return; const fill=(id,rows,key='name')=>{const el=document.getElementById(id); if(el) el.innerHTML='<option value="">— select —</option>'+(rows||[]).map(r=>'<option>'+esc(r[key]||r.value||'')+'</option>').join('');};
-    try{ const [sub,cls,term,ses]=await Promise.all([sb.from('subjects').select('name').order('name'),sb.from('classes').select('name').order('name'),sb.from('lookups').select('value').eq('kind','term').order('position'),sb.from('lookups').select('value').eq('kind','session').order('position')]); fill('ex-subject',sub.data,'name'); fill('ex-class',cls.data,'name'); fill('ex-term',term.data,'value'); fill('ex-session',ses.data,'value'); }catch(e){}
-  },
-  _readFile(ev){ const f=ev.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{document.getElementById('ex-csv').value=r.result;}; r.readAsText(f); },
-  async save(){
-    if(!sb){ toast('Database not configured.','warning'); return; }
-    const csv = document.getElementById('ex-csv').value.trim();
-    const questions = csv ? CBT.parseCSV(csv) : [];
-    if(!questions.length){ toast('Add at least one question (CSV).','warning'); return; }
-    const exam = {
-      title: document.getElementById('ex-title').value,
-      subject: document.getElementById('ex-subject').value || 'General',
-      class: document.getElementById('ex-class').value,
-      term: document.getElementById('ex-term').value,
-      session: document.getElementById('ex-session').value,
-      assessment_type: document.getElementById('ex-type').value,
-      report_column: document.getElementById('ex-col').value,
-      max_score: parseFloat(document.getElementById('ex-max').value)||0,
-      duration: parseInt(document.getElementById('ex-dur').value)||45,
-      attempt_limit: parseInt(document.getElementById('ex-attempts').value)||1,
-      start_at: document.getElementById('ex-start').value || null,
-      close_at: document.getElementById('ex-close').value || null,
-      randomise: document.getElementById('ex-rand').checked,
-      certificate_enabled: document.getElementById('ex-cert').checked,
-      release_results: document.getElementById('ex-release').checked,
-      negative_mark: parseFloat(document.getElementById('ex-neg').value)||0,
-      select_count: parseInt(document.getElementById('ex-sel').value)||0,
-      instructions: document.getElementById('ex-instr').value,
-      anti_cheat_config: { tab_switch:document.getElementById('ac-tab').checked, window_blur:document.getElementById('ac-blur').checked, copy_paste:document.getElementById('ac-copy').checked, right_click:document.getElementById('ac-right').checked, fullscreen:document.getElementById('ac-full').checked, devtools:document.getElementById('ac-dev').checked, math_keyboard:document.getElementById('ac-math').checked, max_violations:parseInt(document.getElementById('ac-max').value)||5 },
-      is_open: true,
-      csv_data: questions
-    };
-    const { data, error } = await CBT.createExam(exam);
-    if(error){ toast('Could not create: '+error.message,'danger'); return; }
-    if(typeof App!=='undefined' && App.logActivity) App.logActivity('create','cbt_exam', data && data.code);
-    closeModal(); toast('✅ Exam created. Code: '+(data&&data.code),'success',6000); CBTUI.refresh();
-  },
-  async toggle(id,open){ if(!sb)return; await sb.from('cbt_exams').update({is_open:open}).eq('id',id); CBTUI.refresh(); },
-  async del(id){ if(!sb)return; if(!confirm('Delete this exam and all its results?'))return; await sb.from('cbt_exams').delete().eq('id',id); if(App&&App.logActivity)App.logActivity('delete','cbt_exam',id); toast('Deleted.','info'); CBTUI.refresh(); },
-  share(code){
-    const url = location.origin + location.pathname.replace(/cbt\.html$/,'cbt-exam.html') + '?code=' + code;
-    const wa = 'https://wa.me/?text='+encodeURIComponent('Take the exam ('+code+'): '+url);
-    openModal('Share exam '+code, '<p>Direct link:</p><input class="form-input" value="'+esc(url)+'" onclick="this.select()"><p style="margin-top:12px">Access code: <strong style="font-size:1.4rem">'+esc(code)+'</strong></p>', '<a class="btn btn-outline" target="_blank" href="'+wa+'">Share on WhatsApp</a><button class="btn btn-primary" onclick="navigator.clipboard.writeText(\''+url+'\');toast(\'Link copied\',\'success\')">Copy link</button>');
-  },
-  async results(id,code){
-    if(!sb)return;
-    const { data } = await sb.from('cbt_results').select('*').eq('exam_id',id).order('score',{ascending:false});
-    const rows=(data||[]).map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(r.student_name)+'</td><td>'+esc(r.student_id_ref||'-')+'</td><td>'+r.score+'/'+r.total+'</td><td>'+(r.percent||0)+'%</td><td>'+esc(r.cert_code||'-')+'</td></tr>').join('');
-    openModal('Results — '+code, '<div style="margin-bottom:10px"><button class="btn btn-sm btn-outline" onclick="CBTUI.exportCSV(\''+id+'\')">⬇ Export CSV</button></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Name</th><th>ID</th><th>Score</th><th>%</th><th>Cert</th></tr></thead><tbody>'+(rows||'<tr><td colspan=6>No submissions yet.</td></tr>')+'</tbody></table></div>');
-  },
-  async exportCSV(id){
-    const { data } = await sb.from('cbt_results').select('*').eq('exam_id',id);
-    const head='Name,StudentID,Class,Score,Total,Percent,Correct,Wrong,Skipped,Cert,SubmittedAt\n';
-    const body=(data||[]).map(r=>[r.student_name,r.student_id_ref,r.student_class,r.score,r.total,r.percent,r.correct_count,r.wrong_count,r.skipped_count,r.cert_code,r.created_at].map(x=>'"'+String(x==null?'':x).replace(/"/g,'""')+'"').join(',')).join('\n');
-    const blob=new Blob([head+body],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='cbt-results.csv'; a.click();
-  },
-  downloadTemplate(){
-    const csv='Question,A,B,C,D,CorrectAnswer,Explanation,Type,Tolerance,Unit,Accept,MRQ_AON,Pairs,Items,Difficulty,Tags,Section\n"What is 5 + 7?",10,11,12,13,C,"Addition.",mcq,,,,,,,Easy,Arithmetic,Numbers\n"Capital of Nigeria?",,,,,Abuja,"FCT.",short,,,FCT,,,,Easy,Geography,Nigeria\n';
-    const blob=new Blob([csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='cbt-template.csv'; a.click();
-  }
-};
-document.addEventListener('click', function(e){ var b=e.target.closest('[data-cbt-action]'); if(!b)return; e.preventDefault(); var fn=b.getAttribute('data-cbt-action'); if(CBTUI[fn]) CBTUI[fn](); });
-document.addEventListener('DOMContentLoaded', function(){ CBTUI.refresh(); }); CBTUI.refresh();
+const TO={ async init(){ const id=new URLSearchParams(location.search).get('staff'); const box=document.getElementById('to-view'); if(!id||!sb){box.innerHTML='<div class="card">Select a staff member from the Staff page.</div>';return;} const st=await sb.from('staff').select('*').eq('id',id).maybeSingle(); const s=st.data||{}; const name=s.full_name||s.name||''; const [sub,res,cbt,sow,lp,att]=await Promise.all([sb.from('subjects').select('*').or('teacher.eq.'+name+',teacher_id.eq.'+id).limit(200),sb.from('results').select('id').eq('teacher_id',id),sb.from('cbt_exams').select('id').eq('teacher_id',id),sb.from('scheme_of_work').select('id').eq('teacher',name),sb.from('lesson_plans').select('id').eq('teacher',name),sb.from('attendance').select('id').eq('teacher_id',id)]); box.innerHTML='<div class="card"><h2>'+esc(name||'Teacher')+'</h2><p>'+esc(s.role||s.designation||'')+' · '+esc(s.email||'')+' · '+esc(s.phone||'')+'</p></div><div class="stats-grid"><div class="stat-card"><div class="stat-value">'+((sub.data||[]).length)+'</div><div class="stat-label">Subjects</div></div><div class="stat-card"><div class="stat-value">'+((res.data||[]).length)+'</div><div class="stat-label">Results Entered</div></div><div class="stat-card"><div class="stat-value">'+((cbt.data||[]).length)+'</div><div class="stat-label">CBT Exams</div></div><div class="stat-card"><div class="stat-value">'+((sow.data||[]).length)+'</div><div class="stat-label">Scheme Rows</div></div><div class="stat-card"><div class="stat-value">'+((lp.data||[]).length)+'</div><div class="stat-label">Lesson Plans</div></div><div class="stat-card"><div class="stat-value">'+((att.data||[]).length)+'</div><div class="stat-label">Attendance Rows</div></div></div><div class="card"><h3>Quick supervision links</h3><a class="btn btn-outline" href="results.html">Results</a> <a class="btn btn-outline" href="cbt.html">CBT</a> <a class="btn btn-outline" href="sow.html">Scheme</a> <a class="btn btn-outline" href="lesson_plans.html">Lesson Plans</a></div>'; }}; document.addEventListener('DOMContentLoaded',()=>TO.init()); TO.init();
 </script></body></html>
