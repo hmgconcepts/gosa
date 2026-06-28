@@ -8,7 +8,7 @@ This fully-featured platform adapts to traditional and modern build deployments.
 
 **School Motto:** Excellence in Learning and Character
 **Branding Theme:** theme9 (Primary: #0f172a, Accent: #2563eb)
-**Typography:** Plus Jakarta Sans
+**Typography:** Manrope
 
 ---
 
@@ -115,26 +115,25 @@ Your platform is pre-configured with the following modules:
 - **Cafeteria & Meals**
 - **Scholarships & Aid**
 - **Front Desk / Dispatch**
+- **Career & Placement**
 - **Custom Document Builder**
 - **Advanced Fleet GPS**
 - **Facility Booking**
 - **Compliance & Audit**
 - **About the Developer**
 - **Audit / Activity Log**
-- **Special Education / Support**
-- **Behaviour & PBIS Points**
-- **Substitute / Cover**
 - **Lesson Plans & Curriculum**
-- **Career & Placement**
+- **Behaviour & PBIS Points**
+- **Special Education / Support**
+- **Substitute / Cover**
 - **In-App Inbox**
-- **PTA Meeting Scheduler**
 - **IT / Help Desk**
-- **Reports & Export**
-- **School Calendar**
+- **PTA Meeting Scheduler**
 - **Lost & Found**
+- **School Calendar**
 - **Book Reservation**
-- **Fundraising & Donations**
 - **Online Fee Payments**
+- **Fundraising & Donations**
 
 ---
 
