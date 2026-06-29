@@ -23,7 +23,7 @@
    Final UI/UX repair: stable, professional navigation for every layout.
    Prevents scattered icons/labels, fixes unsupported layout IDs, and keeps
    large module lists readable on desktop and mobile. */
-:root{--primary:#3730a3;--primary-dark:#3730a3;--primary-light:#0284c7;--accent:#0284c7;--gradient:linear-gradient(135deg,#3730a3,#0284c7);--gradient-dark:linear-gradient(135deg,#3730a3,#0284c7);--font:'Manrope',system-ui,sans-serif;--sc-primary:#3730a3;--sc-accent:#0284c7}
+:root{--primary:#3730a3;--primary-dark:#3730a3;--primary-light:#0284c7;--accent:#0284c7;--gradient:linear-gradient(135deg,#3730a3,#0284c7);--gradient-dark:linear-gradient(135deg,#3730a3,#0284c7);--font:'Plus Jakarta Sans',system-ui,sans-serif;--sc-primary:#3730a3;--sc-accent:#0284c7}
 body{font-family:var(--font)!important;background:#f8fafc}
 .app-layout{display:flex;min-height:100vh;background:#f8fafc;color:#0f172a}
 .app-sidebar{width:286px;flex-shrink:0;background:rgba(255,255,255,.98);border-right:1px solid #e2e8f0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden;z-index:40;box-shadow:0 10px 25px rgba(15,23,42,.04)}
@@ -59,7 +59,7 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
 @media(min-width:901px){.app-topbar .mobile-toggle{display:none}}
 </style>
 </head>
-<body data-theme="theme3" data-school="God of Seed Academy" data-font="manrope">
+<body data-theme="theme3" data-school="God of Seed Academy" data-font="plusjakarta">
 
 <div id="notif-bell" class="notif-bell" title="Notifications" data-chatbot>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -337,15 +337,15 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="lesson_plans.html" data-module-id="lesson_plans" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🗒️</span>
           <span>Lesson Plans</span>
-        </a><a href="behaviour.html" data-module-id="behaviour" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
-          <span class="app-nav-icon">🏅</span>
-          <span>Behaviour</span>
-        </a><a href="support_plans.html" data-module-id="support_plans" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
-          <span class="app-nav-icon">🧩</span>
-          <span>Support Plans</span>
         </a><a href="substitutions.html" data-module-id="substitutions" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">🔁</span>
           <span>Substitutions</span>
+        </a><a href="support_plans.html" data-module-id="support_plans" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
+          <span class="app-nav-icon">🧩</span>
+          <span>Support Plans</span>
+        </a><a href="behaviour.html" data-module-id="behaviour" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
+          <span class="app-nav-icon">🏅</span>
+          <span>Behaviour</span>
         </a><a href="activity_log.html" data-module-id="activity_log" data-role-allow="super_admin admin principal proprietor head_teacher bursar" class="">
           <span class="app-nav-icon">🧮</span>
           <span>Activity Log</span>
@@ -355,27 +355,27 @@ body:not([data-role-ready="1"]) .app-nav a[data-role-allow]{display:none!importa
         </a><a href="helpdesk.html" data-module-id="helpdesk" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">🆘</span>
           <span>Help Desk</span>
-        </a><a href="parent_meeting.html" data-module-id="parent_meeting" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent" class="">
-          <span class="app-nav-icon">👥</span>
-          <span>PTA Meeting</span>
-        </a><a href="school_calendar.html" data-module-id="school_calendar" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
-          <span class="app-nav-icon">📅</span>
-          <span>Calendar</span>
         </a><a href="lost_found.html" data-module-id="lost_found" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">🔍</span>
           <span>Lost &amp; Found</span>
+        </a><a href="school_calendar.html" data-module-id="school_calendar" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
+          <span class="app-nav-icon">📅</span>
+          <span>Calendar</span>
         </a><a href="book_request.html" data-module-id="book_request" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher student" class="">
           <span class="app-nav-icon">📖</span>
           <span>Book Request</span>
-        </a><a href="donations.html" data-module-id="donations" data-role-allow="super_admin admin principal proprietor head_teacher bursar parent" class="">
-          <span class="app-nav-icon">💝</span>
-          <span>Donations</span>
         </a><a href="payments_online.html" data-module-id="payments_online" data-role-allow="super_admin admin principal proprietor head_teacher bursar parent" class="">
           <span class="app-nav-icon">💳</span>
           <span>Online Pay</span>
+        </a><a href="donations.html" data-module-id="donations" data-role-allow="super_admin admin principal proprietor head_teacher bursar parent" class="">
+          <span class="app-nav-icon">💝</span>
+          <span>Donations</span>
         </a><a href="reports.html" data-module-id="reports" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher" class="">
           <span class="app-nav-icon">📈</span>
           <span>Reports</span>
+        </a><a href="parent_meeting.html" data-module-id="parent_meeting" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent" class="">
+          <span class="app-nav-icon">👥</span>
+          <span>PTA Meeting</span>
         </a><a href="student-profile.html" data-module-id="student-profile" data-role-allow="super_admin admin principal proprietor head_teacher bursar staff teacher parent student" class="">
           <span class="app-nav-icon">👤</span>
           <span>Student Profile</span>
@@ -495,6 +495,6 @@ const AR={ rows:[],
  return '<div class="print-record" style="font-family:Arial,sans-serif;color:#000;background:#fff;padding:10px;text-align:center"><div style="margin-bottom:20px"><h1 style="margin:0;font-size:24px;color:#111">'+esc(sc.name||'GOD OF SEED ACADEMY')+'</h1><p style="margin:4px 0;font-size:14px;color:#333">63B, Ishaga Abosule Street, Agbado Crossing, Ogun State.</p><p style="margin:4px 0;font-size:13px;color:#555">SESSION - 2025/2026/TERM-1CU167046 &nbsp;|&nbsp; Class - '+esc(cls||'SS 3')+' &nbsp;|&nbsp; Total Students: '+numStuds+' &nbsp;|&nbsp; Class Average: 50.65 &nbsp;|&nbsp; Maximum Obtainable Score per Subject: 100</p><h2 style="margin:14px 0;font-size:18px;text-transform:uppercase">BROADSHEET ('+esc(term||'FIRST TERM HARMATTAN')+')</h2></div><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:12px;text-align:center"><thead><tr style="background:#eee"><th style="border:1px solid #aaa;padding:8px">S/NO.</th><th style="border:1px solid #aaa;padding:8px;text-align:left">FULL NAME</th><th style="border:1px solid #aaa;padding:8px">ADM NO.</th>'+subs.map(s=>'<th style="border:1px solid #aaa;padding:8px;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;height:120px">'+esc(s)+'</th>').join('')+'<th style="border:1px solid #aaa;padding:8px">TOTAL SCORE</th><th style="border:1px solid #aaa;padding:8px">MAX OBTAINABLE SCORE</th><th style="border:1px solid #aaa;padding:8px">AVERAGE SCORE</th><th style="border:1px solid #aaa;padding:8px">AVERAGE SCORE (%)</th><th style="border:1px solid #aaa;padding:8px">CLASS POSITION</th><th style="border:1px solid #aaa;padding:8px">GRADE</th><th style="border:1px solid #aaa;padding:8px">REMARK</th></tr></thead><tbody>'+cRows+'</tbody></table></div></div>'; },
  table(rows,cols){ return '<table><thead><tr>'+cols.map(c=>'<th>'+esc(c.replace(/_/g,' '))+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+cols.map(c=>'<td>'+esc(r[c]??'')+'</td>').join('')+'</tr>').join('')+'</tbody></table>'; },
  async pullAssessments(){ if(!sb){toast('Database not configured','warning');return;} let made=0; const rows=[]; try{ const r=await sb.from('cbt_results').select('*,cbt_exams(subject,class,term,session,report_column,max_score)').limit(5000); (r.data||[]).forEach(x=>{const e=x.cbt_exams||{}; rows.push({student_name:x.student_name,subject:e.subject||'CBT',class:x.student_class||e.class,term:e.term,session:e.session,ca1:null,ca2:null,ca3:null,exam:Number(x.percent)||0,grade:'',remark:'CBT '+(x.score||0)+'/'+(x.total||0),assessment_source:'cbt',assessment_ref:x.id});}); }catch(e){} try{ const r=await sb.from('reading_scores').select('*').limit(5000); (r.data||[]).forEach(x=>rows.push({student_name:x.student_name,subject:x.subject||'Digital Library',class:x.class,term:x.term,session:x.session,ca3:Number(x.score)||0,remark:'Digital Library score',assessment_source:'digital_library',assessment_ref:x.id})); }catch(e){} for(const row of rows){ if(!row.student_name)continue; try{ const res=await sb.from('results').upsert(row,{onConflict:'assessment_source,assessment_ref'}); if(!res.error)made++; }catch(e){} } toast('Pulled '+made+' assessment score(s) into academic records.','success',6000); this.generate(); },
- print(){ const el=document.getElementById('ar-output'); const w=window.open('','_blank'); if(!w){toast('Popup blocked! Please allow popups.','warning');return;} var sig=localStorage.getItem('sc-signature-url')||'', pn=localStorage.getItem('sc-principal-name')||'Principal'; var sign=sig?'<div style="margin-top:35px;text-align:center"><img src="'+sig+'" style="max-width:160px;max-height:70px;object-fit:contain"><br><b>'+pn+'</b><br>Official Signature</div>':''; w.document.open(); w.document.write('<!DOCTYPE html><html><head><title>Academic Record</title><style>body{font-family:Arial,sans-serif;padding:20px;color:#111;background:#fff}.print-record{text-align:center}table{width:100%;border-collapse:collapse;margin-top:12px}th,td{border:1px solid #111;padding:5px;font-size:12px}th{background:#eee}@media print{button{display:none}}</style></head><body>'+el.innerHTML+sign+'<script>setTimeout(()=>window.print(),500);</script></body></html>'); w.document.close(); w.focus(); }
+ print(){ const el=document.getElementById('ar-output'); const w=window.open('','_blank'); if(!w){toast('Popup blocked! Please allow popups.','warning');return;} var sig=localStorage.getItem('sc-signature-url')||'', pn=localStorage.getItem('sc-principal-name')||'Principal'; var sign=sig?'<div style="margin-top:35px;text-align:center"><img src="'+sig+'" style="max-width:160px;max-height:70px;object-fit:contain"><br><b>'+pn+'</b><br>Official Signature</div>':''; w.document.open(); w.document.write('<!DOCTYPE html><html><head><title>Academic Record</title><style>body{font-family:Arial,sans-serif;padding:20px;color:#111;background:#fff}.print-record{text-align:center}table{width:100%;border-collapse:collapse;margin-top:12px}th,td{border:1px solid #111;padding:5px;font-size:12px}th{background:#eee}@media print{button{display:none}}</style></head><body>'+el.innerHTML+sign+'<script>setTimeout(()=>window.print(),500);<\/script></body></html>'); w.document.close(); w.focus(); }
 }; document.addEventListener('DOMContentLoaded',()=>AR.init()); AR.init();
 </script></body></html>
